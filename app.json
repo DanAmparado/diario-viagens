@@ -47,7 +47,8 @@
         "expo-media-library",
         {
           "photosPermission": "Permita salvar as fotos dos lugares na sua galeria.",
-          "savePhotosPermission": "Permita salvar as fotos dos lugares na sua galeria."
+          "savePhotosPermission": "Permita salvar as fotos dos lugares na sua galeria.",
+          "granularPermissions": ["photo"]
         }
       ]
     ]

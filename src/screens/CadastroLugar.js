@@ -25,7 +25,7 @@ export default function CadastroLugar({ navigation, route }) {
   // Salva a foto na galeria do dispositivo
   async function salvarNaGaleria(uri) {
     try {
-      const { status } = await MediaLibrary.requestPermissionsAsync();
+      const { status } = await MediaLibrary.requestPermissionsAsync(false, ['photo']);
       if (status !== 'granted') {
         Alert.alert('Permissão negada', 'Não foi possível salvar a foto na galeria.');
         return;

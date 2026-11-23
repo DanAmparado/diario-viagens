@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons } from '@expo/vector-icons';
 
 import ListaLugares from '../screens/ListaLugares';
 import MapaLugares from '../screens/MapaLugares';
@@ -10,23 +11,49 @@ import DetalhesLugar from '../screens/DetalhesLugar';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// Abas principais: Lista, Mapa e Estatísticas
 function TabsPrincipais() {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: '#1e88e5',
         tabBarInactiveTintColor: '#757575',
+        tabBarLabelStyle: { fontSize: 12 },
       }}
     >
-      <Tab.Screen name="Lista" component={ListaLugares} options={{ title: 'Lista' }} />
-      <Tab.Screen name="Mapa" component={MapaLugares} options={{ title: 'Mapa' }} />
-      <Tab.Screen name="Estatisticas" component={Estatisticas} options={{ title: 'Estatísticas' }} />
+      <Tab.Screen
+        name="Lista"
+        component={ListaLugares}
+        options={{
+          title: 'Lista',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="list" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Mapa"
+        component={MapaLugares}
+        options={{
+          title: 'Mapa',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="map" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Estatisticas"
+        component={Estatisticas}
+        options={{
+          title: 'Estatísticas',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="bar-chart" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
-// Stack raiz: Tabs + Cadastro + Detalhes (podem ser abertas de qualquer aba)
 export default function AppNavigator() {
   return (
     <Stack.Navigator>
